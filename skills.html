@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/game.css">
   <link rel="stylesheet" href="css/whatsapp.css">
+  <link rel="stylesheet" href="css/checkout.css">
+  <link rel="stylesheet" href="css/extras.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍋</text></svg>">
   <style>
     /* Specific Skills Page Styles */
@@ -183,6 +185,10 @@
       </div>
     </div>
     <div class="hud-right">
+      <button class="stage-pill-btn" style="padding:4px 10px; font-size:0.75rem;" onclick="window.openTerminal && window.openTerminal()" title="Open Developer CLI">💻 CLI</button>
+      <button class="stage-pill-btn" style="padding:4px 10px; font-size:0.75rem;" onclick="window.openSoundboard && window.openSoundboard()" title="Minion Voice Soundboard">🔊 Voices</button>
+      <button class="stage-pill-btn" style="padding:4px 10px; font-size:0.75rem;" onclick="window.openCalculator && window.openCalculator('career')" title="Calculate Salary Hike">🧮 Salary</button>
+      <button class="stage-pill-btn" style="padding:4px 10px; font-size:0.75rem;" onclick="window.openVerification && window.openVerification()" title="Verify Credentials">📜 Verify</button>
       <button class="mini-game-pill" onclick="window.bananaGame && window.bananaGame.open()">🎮 PLAY ARCADE</button>
       <button class="sound-toggle-btn" aria-label="Toggle Sound">🔊 Sound ON</button>
     </div>
@@ -318,8 +324,16 @@
               </div>
             </div>
 
-            <div style="margin-top: auto; display: flex; flex-direction: column; gap: 10px;">
-              <button class="game-btn game-btn-banana game-btn-sm" onclick="window.whatsapp && window.whatsapp.open('Hi Lemon Mint! Please send me the Full-Stack Web & AI syllabus and scholarship details.')">
+            <div style="margin-top: auto; display: flex; flex-direction: column; gap: 8px;">
+              <div style="display:flex; gap:8px;">
+                <button class="game-btn game-btn-banana game-btn-sm" style="flex:1;" onclick="window.openCheckout && window.openCheckout({ title: 'Full-Stack Web & AI - Token Seat Deposit', priceINR: 4999, priceUSD: 59, category: 'Bootcamp' })">
+                  💳 Reserve Seat (₹4,999)
+                </button>
+                <button class="stage-pill-btn" onclick="window.addToBackpack && window.addToBackpack({ id: 'track-fullstack', title: 'Full-Stack Web & AI Seat', priceINR: 4999, priceUSD: 59, category: 'Bootcamp' })" title="Add to Backpack">
+                  🎒 Add
+                </button>
+              </div>
+              <button class="game-btn game-btn-blue game-btn-sm" onclick="window.whatsapp && window.whatsapp.open('Hi Lemon Mint! Please send me the Full-Stack Web & AI syllabus and scholarship details.')">
                 📥 Get Syllabus on WhatsApp
               </button>
               <button class="game-btn game-btn-whatsapp game-btn-sm" onclick="window.whatsapp && window.whatsapp.open('Hi Lemon Mint! I want to enroll in the Full-Stack Web & AI Bootcamp.')">
@@ -353,8 +367,16 @@
               </div>
             </div>
 
-            <div style="margin-top: auto; display: flex; flex-direction: column; gap: 10px;">
-              <button class="game-btn game-btn-banana game-btn-sm" onclick="window.whatsapp && window.whatsapp.open('Hi Lemon Mint! Please share the Data Science & AI track curriculum.')">
+            <div style="margin-top: auto; display: flex; flex-direction: column; gap: 8px;">
+              <div style="display:flex; gap:8px;">
+                <button class="game-btn game-btn-banana game-btn-sm" style="flex:1;" onclick="window.openCheckout && window.openCheckout({ title: 'Data Science & AI - Token Seat Deposit', priceINR: 4999, priceUSD: 59, category: 'Bootcamp' })">
+                  💳 Reserve Seat (₹4,999)
+                </button>
+                <button class="stage-pill-btn" onclick="window.addToBackpack && window.addToBackpack({ id: 'track-datascience', title: 'Data Science & AI Seat', priceINR: 4999, priceUSD: 59, category: 'Bootcamp' })" title="Add to Backpack">
+                  🎒 Add
+                </button>
+              </div>
+              <button class="game-btn game-btn-blue game-btn-sm" onclick="window.whatsapp && window.whatsapp.open('Hi Lemon Mint! Please share the Data Science & AI track curriculum.')">
                 📥 Get Syllabus on WhatsApp
               </button>
               <button class="game-btn game-btn-whatsapp game-btn-sm" onclick="window.whatsapp && window.whatsapp.open('Hi Lemon Mint! I want to apply for the Data Science & AI track.')">
@@ -388,8 +410,16 @@
               </div>
             </div>
 
-            <div style="margin-top: auto; display: flex; flex-direction: column; gap: 10px;">
-              <button class="game-btn game-btn-banana game-btn-sm" onclick="window.whatsapp && window.whatsapp.open('Hi Lemon Mint! Please share Cloud DevOps track curriculum and fees.')">
+            <div style="margin-top: auto; display: flex; flex-direction: column; gap: 8px;">
+              <div style="display:flex; gap:8px;">
+                <button class="game-btn game-btn-banana game-btn-sm" style="flex:1;" onclick="window.openCheckout && window.openCheckout({ title: 'Cloud DevOps & K8s - Token Seat Deposit', priceINR: 4999, priceUSD: 59, category: 'Bootcamp' })">
+                  💳 Reserve Seat (₹4,999)
+                </button>
+                <button class="stage-pill-btn" onclick="window.addToBackpack && window.addToBackpack({ id: 'track-devops', title: 'Cloud DevOps & K8s Seat', priceINR: 4999, priceUSD: 59, category: 'Bootcamp' })" title="Add to Backpack">
+                  🎒 Add
+                </button>
+              </div>
+              <button class="game-btn game-btn-blue game-btn-sm" onclick="window.whatsapp && window.whatsapp.open('Hi Lemon Mint! Please share Cloud DevOps track curriculum and fees.')">
                 📥 Get Syllabus on WhatsApp
               </button>
               <button class="game-btn game-btn-whatsapp game-btn-sm" onclick="window.whatsapp && window.whatsapp.open('Hi Lemon Mint! I want to join Cloud DevOps training.')">
@@ -423,8 +453,16 @@
               </div>
             </div>
 
-            <div style="margin-top: auto; display: flex; flex-direction: column; gap: 10px;">
-              <button class="game-btn game-btn-banana game-btn-sm" onclick="window.whatsapp && window.whatsapp.open('Hi Lemon Mint! Please send me the Gamified UI/UX Design curriculum.')">
+            <div style="margin-top: auto; display: flex; flex-direction: column; gap: 8px;">
+              <div style="display:flex; gap:8px;">
+                <button class="game-btn game-btn-banana game-btn-sm" style="flex:1;" onclick="window.openCheckout && window.openCheckout({ title: 'Gamified UI/UX - Token Seat Deposit', priceINR: 4999, priceUSD: 59, category: 'Bootcamp' })">
+                  💳 Reserve Seat (₹4,999)
+                </button>
+                <button class="stage-pill-btn" onclick="window.addToBackpack && window.addToBackpack({ id: 'track-uiux', title: 'Gamified UI/UX Seat', priceINR: 4999, priceUSD: 59, category: 'Bootcamp' })" title="Add to Backpack">
+                  🎒 Add
+                </button>
+              </div>
+              <button class="game-btn game-btn-blue game-btn-sm" onclick="window.whatsapp && window.whatsapp.open('Hi Lemon Mint! Please send me the Gamified UI/UX Design curriculum.')">
                 📥 Get Syllabus on WhatsApp
               </button>
               <button class="game-btn game-btn-whatsapp game-btn-sm" onclick="window.whatsapp && window.whatsapp.open('Hi Lemon Mint! I want to join the UI/UX Design Bootcamp.')">
@@ -559,11 +597,37 @@
             <div style="font-size: 0.9rem; color: #34D399; margin-bottom: 18px; font-weight:600;">
               ✨ Eligible for up to 30% Early Bird Banana Scholarship!
             </div>
-            <button class="game-btn game-btn-whatsapp" onclick="sendQuizToWhatsApp()">
-              💬 Connect with Admissions Counselor on WhatsApp
-            </button>
+            <div style="display:flex; justify-content:center; gap:10px; flex-wrap:wrap;">
+              <button class="game-btn game-btn-banana game-btn-sm" onclick="window.openCheckout && window.openCheckout({ title: 'Full-Stack Web & AI - Early Bird Token Deposit', priceINR: 4999, priceUSD: 59 })">
+                💳 Reserve Seat (₹4,999)
+              </button>
+              <button class="game-btn game-btn-whatsapp game-btn-sm" onclick="sendQuizToWhatsApp()">
+                💬 Connect on WhatsApp
+              </button>
+            </div>
           </div>
 
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         RECRUITER & PARTNER CERTIFICATE VERIFICATION SECTION
+         ============================================================ -->
+    <section style="background: rgba(15, 23, 42, 0.7); border-top: 1px solid var(--color-card-border); padding: 50px 0;">
+      <div class="container" style="text-align: center; max-width: 760px;">
+        <div class="highlight-badge">📜 EMPLOYER CREDENTIAL REGISTRY</div>
+        <h2 class="section-title" style="font-size: 2.2rem; margin-top: 10px;">Are You a Hiring Partner or Recruiter?</h2>
+        <p class="section-desc" style="margin-bottom: 24px;">
+          Instantly verify Lemon Mint graduate capstone builds, DSA ratings, and placement certificates using our verified ledger.
+        </p>
+        <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
+          <button class="game-btn game-btn-banana" onclick="window.openVerification && window.openVerification()">
+            🔍 Open Certificate Verification Tool
+          </button>
+          <button class="game-btn game-btn-whatsapp" onclick="window.whatsapp && window.whatsapp.open('Hi Lemon Mint Placement Cell! Our company wants to hire your verified graduates.')">
+            💼 Hire Lemon Mint Minions on WhatsApp
+          </button>
         </div>
       </div>
     </section>
@@ -661,6 +725,13 @@
   <script src="js/minion.js"></script>
   <script src="js/game.js"></script>
   <script src="js/whatsapp.js"></script>
+  <script src="js/checkout.js"></script>
+  <script src="js/ticker.js"></script>
+  <script src="js/calculator.js"></script>
+  <script src="js/soundboard.js"></script>
+  <script src="js/terminal.js"></script>
+  <script src="js/verification.js"></script>
+  <script src="js/backpack.js"></script>
   <script src="js/main.js"></script>
 
   <script>

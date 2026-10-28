@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/game.css">
   <link rel="stylesheet" href="css/whatsapp.css">
+  <link rel="stylesheet" href="css/checkout.css">
+  <link rel="stylesheet" href="css/extras.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍋</text></svg>">
   <style>
     /* Specific Products Page Styles */
@@ -194,6 +196,9 @@
       </div>
     </div>
     <div class="hud-right">
+      <button class="stage-pill-btn" style="padding:4px 10px; font-size:0.75rem;" onclick="window.openTerminal && window.openTerminal()" title="Open Developer CLI">💻 CLI</button>
+      <button class="stage-pill-btn" style="padding:4px 10px; font-size:0.75rem;" onclick="window.openSoundboard && window.openSoundboard()" title="Minion Voice Soundboard">🔊 Voices</button>
+      <button class="stage-pill-btn" style="padding:4px 10px; font-size:0.75rem;" onclick="window.openCalculator && window.openCalculator('enterprise')" title="Calculate Impact">🧮 ROI</button>
       <button class="mini-game-pill" onclick="window.bananaGame && window.bananaGame.open()">🎮 PLAY ARCADE</button>
       <button class="sound-toggle-btn" aria-label="Toggle Sound">🔊 Sound ON</button>
     </div>
@@ -304,6 +309,14 @@
             </div>
 
             <div class="product-actions">
+              <div style="display:flex; gap:8px;">
+                <button class="game-btn game-btn-banana game-btn-sm" style="flex:1;" onclick="window.openCheckout && window.openCheckout({ title: 'MintFlow AI™ Enterprise License', priceINR: 24999, priceUSD: 299, category: 'Enterprise AI' })">
+                  💳 Buy License (₹24,999)
+                </button>
+                <button class="stage-pill-btn" onclick="window.addToBackpack && window.addToBackpack({ id: 'prod-mintflow', title: 'MintFlow AI™ Enterprise License', priceINR: 24999, priceUSD: 299, category: 'Enterprise AI' })" title="Add to Backpack">
+                  🎒 Add
+                </button>
+              </div>
               <button class="game-btn game-btn-banana game-btn-sm" onclick="runProductSim('sim-mintflow')">
                 🎮 Test MintFlow Live Demo
               </button>
@@ -338,6 +351,14 @@
             </div>
 
             <div class="product-actions">
+              <div style="display:flex; gap:8px;">
+                <button class="game-btn game-btn-banana game-btn-sm" style="flex:1;" onclick="window.openCheckout && window.openCheckout({ title: 'BananaBots RPA™ Deployment Pack', priceINR: 19999, priceUSD: 249, category: 'Automation' })">
+                  💳 Buy License (₹19,999)
+                </button>
+                <button class="stage-pill-btn" onclick="window.addToBackpack && window.addToBackpack({ id: 'prod-bananabots', title: 'BananaBots RPA™ Pack', priceINR: 19999, priceUSD: 249, category: 'Automation' })" title="Add to Backpack">
+                  🎒 Add
+                </button>
+              </div>
               <button class="game-btn game-btn-banana game-btn-sm" onclick="runProductSim('sim-bananabots')">
                 🎮 Run Bot Simulation
               </button>
@@ -374,6 +395,14 @@
             </div>
 
             <div class="product-actions">
+              <div style="display:flex; gap:8px;">
+                <button class="game-btn game-btn-banana game-btn-sm" style="flex:1;" onclick="window.openCheckout && window.openCheckout({ title: 'OmniSphere Cloud Hub™ License', priceINR: 29999, priceUSD: 359, category: 'Cloud' })">
+                  💳 Deploy Cluster (₹29,999)
+                </button>
+                <button class="stage-pill-btn" onclick="window.addToBackpack && window.addToBackpack({ id: 'prod-omnisphere', title: 'OmniSphere Cloud Hub™', priceINR: 29999, priceUSD: 359, category: 'Cloud' })" title="Add to Backpack">
+                  🎒 Add
+                </button>
+              </div>
               <button class="game-btn game-btn-banana game-btn-sm" onclick="runProductSim('sim-omnisphere')">
                 🎮 Ping Cloud Telemetry
               </button>
@@ -409,6 +438,14 @@
             </div>
 
             <div class="product-actions">
+              <div style="display:flex; gap:8px;">
+                <button class="game-btn game-btn-banana game-btn-sm" style="flex:1;" onclick="window.openCheckout && window.openCheckout({ title: 'LemonChat WhatsApp Engine™ Setup', priceINR: 14999, priceUSD: 189, category: 'WhatsApp' })">
+                  💳 Setup Engine (₹14,999)
+                </button>
+                <button class="stage-pill-btn" onclick="window.addToBackpack && window.addToBackpack({ id: 'prod-lemonchat', title: 'LemonChat Engine™ Setup', priceINR: 14999, priceUSD: 189, category: 'WhatsApp' })" title="Add to Backpack">
+                  🎒 Add
+                </button>
+              </div>
               <button class="game-btn game-btn-banana game-btn-sm" onclick="runProductSim('sim-lemonchat')">
                 🎮 Simulate Bot Flow
               </button>
@@ -443,6 +480,14 @@
             </div>
 
             <div class="product-actions">
+              <div style="display:flex; gap:8px;">
+                <button class="game-btn game-btn-banana game-btn-sm" style="flex:1;" onclick="window.openCheckout && window.openCheckout({ title: 'SentinelShield Armor™ License', priceINR: 21999, priceUSD: 269, category: 'Security' })">
+                  💳 Buy Armor (₹21,999)
+                </button>
+                <button class="stage-pill-btn" onclick="window.addToBackpack && window.addToBackpack({ id: 'prod-sentinel', title: 'SentinelShield Armor™', priceINR: 21999, priceUSD: 269, category: 'Security' })" title="Add to Backpack">
+                  🎒 Add
+                </button>
+              </div>
               <button class="game-btn game-btn-banana game-btn-sm" onclick="runProductSim('sim-sentinel')">
                 🎮 Trigger Threat Audit
               </button>
@@ -477,6 +522,14 @@
             </div>
 
             <div class="product-actions">
+              <div style="display:flex; gap:8px;">
+                <button class="game-btn game-btn-banana game-btn-sm" style="flex:1;" onclick="window.openCheckout && window.openCheckout({ title: 'PixelCraft Gamified UI/UX Engine', priceINR: 17999, priceUSD: 219, category: 'UI/UX' })">
+                  💳 Buy Engine (₹17,999)
+                </button>
+                <button class="stage-pill-btn" onclick="window.addToBackpack && window.addToBackpack({ id: 'prod-pixelcraft', title: 'PixelCraft UI/UX Engine', priceINR: 17999, priceUSD: 219, category: 'UI/UX' })" title="Add to Backpack">
+                  🎒 Add
+                </button>
+              </div>
               <button class="game-btn game-btn-banana game-btn-sm" onclick="runProductSim('sim-pixelcraft')">
                 🎮 Test Gamified Microloop
               </button>
@@ -655,6 +708,13 @@
   <script src="js/minion.js"></script>
   <script src="js/game.js"></script>
   <script src="js/whatsapp.js"></script>
+  <script src="js/checkout.js"></script>
+  <script src="js/ticker.js"></script>
+  <script src="js/calculator.js"></script>
+  <script src="js/soundboard.js"></script>
+  <script src="js/terminal.js"></script>
+  <script src="js/verification.js"></script>
+  <script src="js/backpack.js"></script>
   <script src="js/main.js"></script>
 
   <script>

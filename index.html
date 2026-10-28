@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/game.css">
   <link rel="stylesheet" href="css/whatsapp.css">
+  <link rel="stylesheet" href="css/checkout.css">
+  <link rel="stylesheet" href="css/extras.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍋</text></svg>">
 </head>
 <body>
@@ -29,6 +31,9 @@
       </div>
     </div>
     <div class="hud-right">
+      <button class="stage-pill-btn" style="padding:4px 10px; font-size:0.75rem;" onclick="window.openTerminal && window.openTerminal()" title="Open Developer CLI">💻 CLI</button>
+      <button class="stage-pill-btn" style="padding:4px 10px; font-size:0.75rem;" onclick="window.openSoundboard && window.openSoundboard()" title="Minion Voice Soundboard">🔊 Voices</button>
+      <button class="stage-pill-btn" style="padding:4px 10px; font-size:0.75rem;" onclick="window.openCalculator && window.openCalculator('enterprise')" title="Calculate Impact">🧮 ROI</button>
       <button class="mini-game-pill" onclick="window.bananaGame && window.bananaGame.open()">🎮 PLAY ARCADE</button>
       <button class="sound-toggle-btn" aria-label="Toggle Sound">🔊 Sound ON</button>
     </div>
@@ -90,9 +95,12 @@
             <button class="game-btn game-btn-whatsapp" onclick="window.whatsapp && window.whatsapp.open('Hi Lemon Mint! I want to discuss a new software project.')">
               💬 Instant WhatsApp Chat
             </button>
-            <a href="skills.html" class="game-btn game-btn-blue">
-              🎓 Placement Academy
-            </a>
+            <button class="game-btn game-btn-blue" onclick="window.openCheckout && window.openCheckout({ title: 'Full-Stack Web & AI - Token Seat Deposit', priceINR: 4999, priceUSD: 59 })">
+              💳 Reserve Seat (₹4,999)
+            </button>
+            <button class="stage-pill-btn" onclick="window.openCalculator && window.openCalculator('enterprise')" style="padding:14px 20px;">
+              🧮 ROI Calculator
+            </button>
           </div>
 
           <div class="hero-stats-row">
@@ -460,6 +468,13 @@
   <script src="js/minion.js"></script>
   <script src="js/game.js"></script>
   <script src="js/whatsapp.js"></script>
+  <script src="js/checkout.js"></script>
+  <script src="js/ticker.js"></script>
+  <script src="js/calculator.js"></script>
+  <script src="js/soundboard.js"></script>
+  <script src="js/terminal.js"></script>
+  <script src="js/verification.js"></script>
+  <script src="js/backpack.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
