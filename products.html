@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products & Solutions | Lemon Mint Tech Arsenal</title>
+  <meta name="description" content="Explore Lemon Mint's gamified enterprise software, autonomous AI bots, cloud infrastructure, and WhatsApp business engines.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/game.css">
+  <link rel="stylesheet" href="css/whatsapp.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍋</text></svg>">
+  <style>
+    /* Specific Products Page Styles */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .filter-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--color-card-border);
+      color: #94A3B8;
+      padding: 10px 20px;
+      border-radius: var(--radius-full);
+      font-family: var(--font-fun);
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-bounce);
+    }
+    .filter-btn:hover {
+      border-color: var(--color-banana);
+      color: var(--color-banana);
+      transform: translateY(-2px);
+    }
+    .filter-btn.active {
+      background: var(--color-banana);
+      color: #0F172A;
+      border-color: var(--color-banana);
+      box-shadow: 0 4px 0 var(--color-banana-dark);
+      font-weight: 700;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 32px;
+    }
+
+    .product-card {
+      background: linear-gradient(160deg, #16223b 0%, #0d172a 100%);
+      border: 2px solid var(--color-card-border);
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition-bounce);
+      box-shadow: var(--shadow-card);
+    }
+
+    .product-card:hover {
+      border-color: var(--color-banana);
+      transform: translateY(-6px);
+      box-shadow: 0 18px 36px rgba(0,0,0,0.4), 0 0 25px rgba(255, 210, 0, 0.15);
+    }
+
+    .product-rarity {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-arcade);
+      font-size: 0.65rem;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 16px;
+      align-self: flex-start;
+    }
+
+    .rarity-mythic {
+      background: rgba(239, 68, 68, 0.2);
+      border: 1px solid #EF4444;
+      color: #F87171;
+    }
+    .rarity-legendary {
+      background: rgba(245, 158, 11, 0.2);
+      border: 1px solid #F59E0B;
+      color: #FCD34D;
+    }
+    .rarity-epic {
+      background: rgba(139, 92, 246, 0.2);
+      border: 1px solid #8B5CF6;
+      color: #C4B5FD;
+    }
+
+    .product-power-meter {
+      background: rgba(0,0,0,0.4);
+      border-radius: 20px;
+      padding: 3px 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      margin-bottom: 18px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .power-track {
+      flex: 1;
+      height: 8px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .power-fill {
+      height: 100%;
+      border-radius: 10px;
+      background: linear-gradient(90deg, var(--color-banana), #10B981);
+    }
+
+    .product-tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 18px 0;
+    }
+
+    .tech-pill {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #CBD5E1;
+      font-size: 0.75rem;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-family: var(--font-arcade);
+    }
+
+    .product-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: auto;
+      padding-top: 20px;
+      border-top: 1px dashed rgba(255,255,255,0.1);
+    }
+
+    /* Interactive Simulator Box */
+    .simulator-box {
+      background: #090e1a;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius-md);
+      padding: 12px;
+      margin: 14px 0;
+      font-family: monospace;
+      font-size: 0.82rem;
+      color: #34D399;
+      display: none;
+    }
+    .simulator-box.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    /* Custom Solution Estimator */
+    .estimator-card {
+      background: linear-gradient(145deg, #172554 0%, #0c1730 100%);
+      border: 3px solid var(--color-banana);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       TOP GAME HUD BAR
+       ============================================================ -->
+  <aside class="game-hud-bar" aria-label="Game HUD">
+    <div class="hud-left">
+      <div class="hud-badge player-level-badge">LVL 1: Rookie Minion</div>
+      <div class="hud-badge hud-banana-counter" onclick="window.game && window.game.addBananas(20, event.clientX, event.clientY)" title="Click for bonus bananas!">
+        <span>🍌</span> <strong class="banana-score-val">350</strong> XP
+      </div>
+      <div class="hud-progress-wrap">
+        <span style="font-size:0.75rem; color:#94A3B8;">Next Level:</span>
+        <div class="hud-progress-bar">
+          <div class="hud-progress-fill" style="width: 45%;"></div>
+        </div>
+      </div>
+    </div>
+    <div class="hud-right">
+      <button class="mini-game-pill" onclick="window.bananaGame && window.bananaGame.open()">🎮 PLAY ARCADE</button>
+      <button class="sound-toggle-btn" aria-label="Toggle Sound">🔊 Sound ON</button>
+    </div>
+  </aside>
+
+  <!-- ============================================================
+       MAIN NAVIGATION
+       ============================================================ -->
+  <header class="site-header">
+    <nav class="navbar-container" aria-label="Primary Navigation">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-logo-icon">🍋</div>
+        <div class="brand-logo-text">
+          <div class="brand-name">Lemon <span class="mint-text">Mint</span></div>
+          <div class="brand-tagline">SERIOUS TECH • PLAYFUL GENIUS</div>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li class="nav-item"><a href="index.html">🏠 Home</a></li>
+        <li class="nav-item"><a href="products.html" class="active">⚡ Products & Solutions</a></li>
+        <li class="nav-item"><a href="skills.html">🎓 Skill & Placement</a></li>
+        <li class="nav-item">
+          <a href="javascript:void(0)" onclick="window.whatsapp && window.whatsapp.open()" class="text-mint">
+            💬 WhatsApp Live
+          </a>
+        </li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="game-btn game-btn-whatsapp game-btn-sm" onclick="window.whatsapp && window.whatsapp.open('Hi Lemon Mint! I want to inquire about your software solutions.')">
+          💬 WhatsApp Query
+        </button>
+        <button class="mobile-menu-btn" aria-label="Open Mobile Menu">☰</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ============================================================
+       PAGE HERO SECTION
+       ============================================================ -->
+  <main>
+    <section style="padding: 50px 0 30px 0;">
+      <div class="container" style="text-align: center; max-width: 860px;">
+        <div class="highlight-badge" style="margin-bottom: 14px;">
+          <span>⚡</span> LEVEL 2 UNLOCKED: THE INVENTOR ARSENAL
+        </div>
+        <h1 class="section-title" style="font-size: 3rem;">
+          Products, AI Bots & <span class="text-banana">Engineered Solutions</span>
+        </h1>
+        <p class="section-desc">
+          Arm your business with autonomous enterprise AI agents, robotic process automation, multi-cloud platforms, and WhatsApp business engines designed for unmatched velocity.
+        </p>
+
+        <!-- Stuart Minion Mascot Helper -->
+        <div style="display:flex; justify-content:center; margin: 24px 0 10px 0;">
+          <div style="width: 140px; height: 160px; cursor:pointer;" data-minion-type="stuart" id="stuart-products-mascot" title="Click Stuart to trigger lab diagnostics and get Bananas!"></div>
+        </div>
+        <p style="font-size:0.85rem; color:#94A3B8;">
+          <em>Stuart is monitoring all systems. Click him for +10 Bananas!</em>
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PRODUCTS FILTER BAR & ARSENAL GRID
+         ============================================================ -->
+    <section style="padding-top: 10px;">
+      <div class="container">
+        
+        <!-- Filter Tabs -->
+        <div class="filter-bar">
+          <button class="filter-btn active" onclick="filterProducts('all', this)">All Arsenal (6)</button>
+          <button class="filter-btn" onclick="filterProducts('ai', this)">🤖 Enterprise AI & Agents</button>
+          <button class="filter-btn" onclick="filterProducts('rpa', this)">⚙️ Automation & RPA</button>
+          <button class="filter-btn" onclick="filterProducts('cloud', this)">☁️ Cloud & SaaS</button>
+          <button class="filter-btn" onclick="filterProducts('wa', this)">💬 WhatsApp Engines</button>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="product-grid" id="product-grid-container">
+
+          <!-- Product 1: MintFlow AI -->
+          <div class="product-card" data-category="ai" id="mintflow">
+            <span class="product-rarity rarity-mythic">MYTHIC TIER ★★★★★</span>
+            <div class="product-power-meter">
+              <span>PWR: 99.4/100</span>
+              <div class="power-track"><div class="power-fill" style="width: 99%;"></div></div>
+            </div>
+            <h3 style="font-size: 1.5rem; color: #FFFFFF; margin-bottom: 8px;">MintFlow AI™</h3>
+            <p style="color: #94A3B8; font-size: 0.95rem; margin-bottom: 14px;">
+              Autonomous multimodal agent orchestration framework. Synthesizes unstructured enterprise documents, automates cross-department workflows, and interacts with ERPs autonomously.
+            </p>
+            <div class="product-tech-stack">
+              <span class="tech-pill">LLM AGENTS</span>
+              <span class="tech-pill">PYTHON 3.13</span>
+              <span class="tech-pill">VECTOR DB</span>
+              <span class="tech-pill">ERP SYNC</span>
+            </div>
+
+            <!-- Interactive Demo Output Box -->
+            <div class="simulator-box" id="sim-mintflow">
+              [SYSTEM] Running MintFlow pipeline...<br>
+              ✔ Step 1: Ingesting 450 invoice PDFs (0.3s)<br>
+              ✔ Step 2: Extracting ledger line-items (0.8s)<br>
+              ✔ Step 3: SAP ERP reconciliation matched: 100%<br>
+              ✨ <strong>Workflow Complete: 4.2 Hours Saved!</strong>
+            </div>
+
+            <div class="product-actions">
+              <button class="game-btn game-btn-banana game-btn-sm" onclick="runProductSim('sim-mintflow')">
+                🎮 Test MintFlow Live Demo
+              </button>
+              <button class="game-btn game-btn-whatsapp game-btn-sm" onclick="window.whatsapp && window.whatsapp.open('Hi Lemon Mint! I am interested in MintFlow AI. Please share demo access and pricing.')">
+                💬 Inquire on WhatsApp
+              </button>
+            </div>
+          </div>
+
+          <!-- Product 2: BananaBots RPA -->
+          <div class="product-card" data-category="rpa" id="bananabots">
+            <span class="product-rarity rarity-legendary">LEGENDARY TIER ★★★★★</span>
+            <div class="product-power-meter">
+              <span>PWR: 98.2/100</span>
+              <div class="power-track"><div class="power-fill" style="width: 98%;"></div></div>
+            </div>
+            <h3 style="font-size: 1.5rem; color: #FFFFFF; margin-bottom: 8px;">BananaBots RPA™</h3>
+            <p style="color: #94A3B8; font-size: 0.95rem; margin-bottom: 14px;">
+              High-speed robotic process automation bots. Automatically logs into portals, reconciles banking statements, executes data syncs, and delivers error-free audits 24/7.
+            </p>
+            <div class="product-tech-stack">
+              <span class="tech-pill">RPA BOTS</span>
+              <span class="tech-pill">HEADLESS OCR</span>
+              <span class="tech-pill">99.99% ACCURACY</span>
+            </div>
+
+            <div class="simulator-box" id="sim-bananabots">
+              [BOT-07] Autonomous session active...<br>
+              ✔ Ingested 12 banking portals<br>
+              ✔ Matched 18,400 financial records<br>
+              ✨ <strong>Status: Zero discrepancies detected!</strong>
+            </div>
+
+            <div class="product-actions">
+              <button class="game-btn game-btn-banana game-btn-sm" onclick="runProductSim('sim-bananabots')">
+                🎮 Run Bot Simulation
+              </button>
+              <button class="game-btn game-btn-whatsapp game-btn-sm" onclick="window.whatsapp && window.whatsapp.open('Hi Lemon Mint! I need BananaBots RPA for our company automation. Let\'s chat.')">
+                💬 Inquire on WhatsApp
+              </button>
+            </div>
+          </div>
+
+          <!-- Product 3: OmniSphere Cloud Hub -->
+          <div class="product-card" data-category="cloud" id="omnisphere">
+            <span class="product-rarity rarity-epic">EPIC TIER ★★★★☆</span>
+            <div class="product-power-meter">
+              <span>PWR: 96.8/100</span>
+              <div class="power-track"><div class="power-fill" style="width: 96%;"></div></div>
+            </div>
+            <h3 style="font-size: 1.5rem; color: #FFFFFF; margin-bottom: 8px;">OmniSphere Cloud Hub™</h3>
+            <p style="color: #94A3B8; font-size: 0.95rem; margin-bottom: 14px;">
+              Elastic multi-region SaaS architecture. Microservices with real-time WebSocket telemetry, global edge caching, automated Kubernetes scaling, and sub-50ms worldwide response.
+            </p>
+            <div class="product-tech-stack">
+              <span class="tech-pill">KUBERNETES</span>
+              <span class="tech-pill">TERRAFORM</span>
+              <span class="tech-pill">EDGE CDN</span>
+              <span class="tech-pill">MULTI-REGION</span>
+            </div>
+
+            <div class="simulator-box" id="sim-omnisphere">
+              [TELEMETRY] Global Node Cluster:<br>
+              ✔ US-East: 18ms latency | 0.00% loss<br>
+              ✔ EU-Central: 24ms latency | Active<br>
+              ✔ AP-South: 12ms latency | Auto-scaled +4 nodes<br>
+              ✨ <strong>Uptime: 99.999% Guaranteed</strong>
+            </div>
+
+            <div class="product-actions">
+              <button class="game-btn game-btn-banana game-btn-sm" onclick="runProductSim('sim-omnisphere')">
+                🎮 Ping Cloud Telemetry
+              </button>
+              <button class="game-btn game-btn-whatsapp game-btn-sm" onclick="window.whatsapp && window.whatsapp.open('Hi Lemon Mint! I want to consult on the OmniSphere Cloud architecture.')">
+                💬 Inquire on WhatsApp
+              </button>
+            </div>
+          </div>
+
+          <!-- Product 4: LemonChat WhatsApp AI Engine -->
+          <div class="product-card" data-category="wa" id="lemonchat">
+            <span class="product-rarity rarity-mythic">MYTHIC TIER ★★★★★</span>
+            <div class="product-power-meter">
+              <span>PWR: 99.9/100</span>
+              <div class="power-track"><div class="power-fill" style="width: 100%;"></div></div>
+            </div>
+            <h3 style="font-size: 1.5rem; color: #FFFFFF; margin-bottom: 8px;">LemonChat WhatsApp Engine™</h3>
+            <p style="color: #94A3B8; font-size: 0.95rem; margin-bottom: 14px;">
+              Turn WhatsApp into your most lucrative revenue engine. Conversational AI agent with product catalog showcase, payment checkout triggers, ticket routing, and instant live human takeover.
+            </p>
+            <div class="product-tech-stack">
+              <span class="tech-pill">OFFICIAL META API</span>
+              <span class="tech-pill">PAYMENT LINKS</span>
+              <span class="tech-pill">CRM SYNC</span>
+              <span class="tech-pill">AI QUALIFIER</span>
+            </div>
+
+            <div class="simulator-box" id="sim-lemonchat">
+              [WHATSAPP BOT] Active Session:<br>
+              ✔ User: "I need a quote for cloud migration"<br>
+              ✔ LemonBot: "Got it! Calculating estimate for 5 servers..."<br>
+              ✔ Instant quote delivered & CRM updated in 1.4s!
+            </div>
+
+            <div class="product-actions">
+              <button class="game-btn game-btn-banana game-btn-sm" onclick="runProductSim('sim-lemonchat')">
+                🎮 Simulate Bot Flow
+              </button>
+              <button class="game-btn game-btn-whatsapp game-btn-sm" onclick="window.whatsapp && window.whatsapp.open('Hi Lemon Mint! I want to implement the LemonChat WhatsApp Engine for my business.')">
+                💬 Inquire on WhatsApp
+              </button>
+            </div>
+          </div>
+
+          <!-- Product 5: SentinelShield Cyber Armor -->
+          <div class="product-card" data-category="cloud" id="sentinel">
+            <span class="product-rarity rarity-legendary">LEGENDARY TIER ★★★★★</span>
+            <div class="product-power-meter">
+              <span>PWR: 97.5/100</span>
+              <div class="power-track"><div class="power-fill" style="width: 97%;"></div></div>
+            </div>
+            <h3 style="font-size: 1.5rem; color: #FFFFFF; margin-bottom: 8px;">SentinelShield Cyber Armor™</h3>
+            <p style="color: #94A3B8; font-size: 0.95rem; margin-bottom: 14px;">
+              Zero-Trust API security gateway with AI threat detection, DDoS mitigation, and real-time behavioral anomaly detection. Compliant with SOC2, ISO27001, and HIPAA frameworks.
+            </p>
+            <div class="product-tech-stack">
+              <span class="tech-pill">ZERO-TRUST</span>
+              <span class="tech-pill">SOC2 AUDIT</span>
+              <span class="tech-pill">WAF GATEWAY</span>
+            </div>
+
+            <div class="simulator-box" id="sim-sentinel">
+              [SENTINEL SHIELD] Scanning traffic:<br>
+              ✔ 2.4M requests inspected<br>
+              ✔ 14 malicious payload injections isolated<br>
+              ✨ <strong>Status: Perimeter 100% Fortified</strong>
+            </div>
+
+            <div class="product-actions">
+              <button class="game-btn game-btn-banana game-btn-sm" onclick="runProductSim('sim-sentinel')">
+                🎮 Trigger Threat Audit
+              </button>
+              <button class="game-btn game-btn-whatsapp game-btn-sm" onclick="window.whatsapp && window.whatsapp.open('Hi Lemon Mint! Let\'s talk about cybersecurity and SentinelShield.')">
+                💬 Inquire on WhatsApp
+              </button>
+            </div>
+          </div>
+
+          <!-- Product 6: PixelCraft Gamified UI/UX Engine -->
+          <div class="product-card" data-category="rpa" id="pixelcraft">
+            <span class="product-rarity rarity-epic">EPIC TIER ★★★★☆</span>
+            <div class="product-power-meter">
+              <span>PWR: 95.0/100</span>
+              <div class="power-track"><div class="power-fill" style="width: 95%;"></div></div>
+            </div>
+            <h3 style="font-size: 1.5rem; color: #FFFFFF; margin-bottom: 8px;">PixelCraft Gamified UI/UX™</h3>
+            <p style="color: #94A3B8; font-size: 0.95rem; margin-bottom: 14px;">
+              Transform dry enterprise web applications into addictive, gamified user experiences. Features quest trackers, XP achievements, interactive mascots, and dopamine feedback loops.
+            </p>
+            <div class="product-tech-stack">
+              <span class="tech-pill">MICRO-INTERACTIONS</span>
+              <span class="tech-pill">WEB AUDIO API</span>
+              <span class="tech-pill">RETENTION +400%</span>
+            </div>
+
+            <div class="simulator-box" id="sim-pixelcraft">
+              [PIXELCRAFT] User Retention Boost:<br>
+              ✔ Daily Active Users: +312%<br>
+              ✔ Session Duration: +4.8x<br>
+              ✨ <strong>Dopamine Loops Active & Healthy!</strong>
+            </div>
+
+            <div class="product-actions">
+              <button class="game-btn game-btn-banana game-btn-sm" onclick="runProductSim('sim-pixelcraft')">
+                🎮 Test Gamified Microloop
+              </button>
+              <button class="game-btn game-btn-whatsapp game-btn-sm" onclick="window.whatsapp && window.whatsapp.open('Hi Lemon Mint! I want to gamify my web application with PixelCraft UI/UX.')">
+                💬 Inquire on WhatsApp
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ============================================================
+             INTERACTIVE CUSTOM SOLUTION ESTIMATOR / QUEST CALCULATOR
+             ============================================================ -->
+        <div class="estimator-card">
+          <div class="section-header" style="margin-bottom: 30px;">
+            <div class="highlight-badge" style="background: rgba(0,0,0,0.3); border-color: var(--color-banana); color: var(--color-banana);">
+              🧮 INTERACTIVE QUEST ESTIMATOR
+            </div>
+            <h2 style="font-size: 2.2rem; color: #FFFFFF; margin-top: 10px;">Configure Your Custom Tech Solution</h2>
+            <p style="color: #CBD5E1; font-size: 1rem;">
+              Select your required capabilities below. We'll calculate the estimated engineering power and package it into an instant WhatsApp query for our solutions team!
+            </p>
+          </div>
+
+          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:24px;">
+            
+            <!-- Option 1: Product Scope -->
+            <div style="background: rgba(0,0,0,0.3); padding:20px; border-radius: var(--radius-md); border:1px solid rgba(255,255,255,0.1);">
+              <label style="display:block; font-weight:700; color:var(--color-banana); margin-bottom:10px;">
+                1. Select Solution Type:
+              </label>
+              <select id="est-type" style="width:100%; padding:10px; background:#0F172A; border:1px solid var(--color-card-border); border-radius:var(--radius-sm); color:white; font-size:0.95rem;" onchange="updateEstimator()">
+                <option value="Enterprise AI Agent & LLM Workflow">🤖 Enterprise AI Agent & LLM Workflow</option>
+                <option value="Custom SaaS Platform & Cloud Infrastructure">☁️ Custom SaaS Platform & Cloud Infrastructure</option>
+                <option value="RPA Robotic Automation Bot">⚙️ RPA Robotic Automation Bot</option>
+                <option value="WhatsApp Conversational Commerce Bot">💬 WhatsApp Conversational Commerce Bot</option>
+                <option value="Full Gamified Web / Mobile App">🎮 Full Gamified Web / Mobile App</option>
+              </select>
+            </div>
+
+            <!-- Option 2: Business Scale -->
+            <div style="background: rgba(0,0,0,0.3); padding:20px; border-radius: var(--radius-md); border:1px solid rgba(255,255,255,0.1);">
+              <label style="display:block; font-weight:700; color:var(--color-banana); margin-bottom:10px;">
+                2. Target Scale & Complexity:
+              </label>
+              <select id="est-scale" style="width:100%; padding:10px; background:#0F172A; border:1px solid var(--color-card-border); border-radius:var(--radius-sm); color:white; font-size:0.95rem;" onchange="updateEstimator()">
+                <option value="Startup MVP (Fast launch, 2-4 weeks)">🚀 Startup MVP (2-4 weeks)</option>
+                <option value="Growth Scale (Multi-tenant, high performance)">📈 Growth Scale (Multi-tenant)</option>
+                <option value="Enterprise Tier (High compliance, 99.99% SLA)">🏢 Enterprise Tier (High compliance & SLA)</option>
+              </select>
+            </div>
+
+            <!-- Option 3: Integration Need -->
+            <div style="background: rgba(0,0,0,0.3); padding:20px; border-radius: var(--radius-md); border:1px solid rgba(255,255,255,0.1);">
+              <label style="display:block; font-weight:700; color:var(--color-banana); margin-bottom:10px;">
+                3. WhatsApp & CRM Integration:
+              </label>
+              <select id="est-wa" style="width:100%; padding:10px; background:#0F172A; border:1px solid var(--color-card-border); border-radius:var(--radius-sm); color:white; font-size:0.95rem;" onchange="updateEstimator()">
+                <option value="Full WhatsApp Bot + Human Live Handoff">💬 Full WhatsApp Bot + Human Live Handoff</option>
+                <option value="Basic WhatsApp Query Routing">📩 Basic WhatsApp Query Routing</option>
+                <option value="Standalone API / Webhooks">🔗 Standalone API / Webhooks</option>
+              </select>
+            </div>
+
+          </div>
+
+          <!-- Dynamic Output Card -->
+          <div style="background: rgba(0,0,0,0.45); border: 2px dashed var(--color-banana); border-radius: var(--radius-md); padding: 24px; margin-top: 24px; text-align: center;">
+            <div style="font-size: 1.1rem; color: #FFFFFF; margin-bottom: 8px;">
+              Configured Quest: <strong id="est-summary-text" style="color:var(--color-banana);">Enterprise AI Agent & LLM Workflow (Startup MVP)</strong>
+            </div>
+            <div style="font-size: 0.9rem; color: #94A3B8; margin-bottom: 20px;">
+              Estimated Delivery Speed: <span id="est-speed" style="color:#34D399; font-weight:bold;">2 to 4 Weeks</span> | Power Rating: <span id="est-power" style="color:var(--color-banana); font-weight:bold;">98.5/100</span>
+            </div>
+            
+            <button class="game-btn game-btn-whatsapp" onclick="sendEstimatorToWhatsApp()">
+              💬 Send Specs to WhatsApp Solutions Team
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         BOTTOM WHATSAPP BANNER
+         ============================================================ -->
+    <section>
+      <div class="container">
+        <div class="cta-banner-card">
+          <div class="cta-content">
+            <div class="highlight-badge" style="margin-bottom:14px; background:rgba(0,0,0,0.3); border-color:#25D366; color:#34D399;">
+              ⚡ IMMEDIATE SOLUTIONS DESK
+            </div>
+            <h2>Need a Live Technical Walkthrough?</h2>
+            <p>
+              Our senior solutions architects and lead engineers are accessible directly on WhatsApp. Let's discuss your roadmap, architecture blueprints, and budget in real time.
+            </p>
+          </div>
+          <div class="cta-buttons">
+            <button class="game-btn game-btn-whatsapp" onclick="window.whatsapp && window.whatsapp.open('Hi Lemon Mint! I would like to schedule a technical walkthrough for my company.')">
+              <span>💬</span> Schedule Walkthrough
+            </button>
+            <a href="skills.html" class="game-btn game-btn-banana game-btn-sm">
+              <span>🎓</span> Explore Placement Tracks
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       SITE FOOTER
+       ============================================================ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <div class="brand-logo-icon">🍋</div>
+            <div class="brand-logo-text">
+              <div class="brand-name">Lemon <span class="mint-text">Mint</span></div>
+              <div class="brand-tagline">SERIOUS TECH • PLAYFUL GENIUS</div>
+            </div>
+          </div>
+          <p>
+            Autonomous AI workflows, custom RPA bots, and high-performance cloud infrastructure for high-growth businesses worldwide.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">🏠 Home (Landing)</a></li>
+            <li><a href="products.html">⚡ Products & Solutions</a></li>
+            <li><a href="skills.html">🎓 Skill & Placement</a></li>
+            <li><a href="javascript:void(0)" onclick="window.bananaGame && window.bananaGame.open()">🎮 Play Banana Arcade</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Product Lines</h4>
+          <ul class="footer-links">
+            <li><a href="#mintflow">🤖 MintFlow AI Agents</a></li>
+            <li><a href="#bananabots">⚙️ BananaBots RPA</a></li>
+            <li><a href="#omnisphere">☁️ OmniSphere Cloud Hub</a></li>
+            <li><a href="#lemonchat">💬 LemonChat WhatsApp</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>WhatsApp Queries</h4>
+          <p style="font-size:0.85rem; margin-bottom:12px; color:#CBD5E1;">
+            Instant responses for pricing, architecture, and demonstrations.
+          </p>
+          <button class="game-btn game-btn-whatsapp game-btn-sm" onclick="window.whatsapp && window.whatsapp.open('Hi Lemon Mint Solutions! I want to discuss product pricing.')">
+            💬 Query on WhatsApp
+          </button>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 Lemon Mint Technologies Inc. All rights reserved. Built with 🍋 and 🍌.</div>
+        <div style="display:flex; gap:16px;">
+          <a href="javascript:void(0)" onclick="window.whatsapp && window.whatsapp.open('Hi! Please share Lemon Mint privacy policy.')" style="color:#94A3B8; text-decoration:none;">Privacy Policy</a>
+          <a href="javascript:void(0)" onclick="window.whatsapp && window.whatsapp.open('Hi! Please share terms of service.')" style="color:#94A3B8; text-decoration:none;">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/audio.js"></script>
+  <script src="js/minion.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/whatsapp.js"></script>
+  <script src="js/main.js"></script>
+
+  <script>
+    // Product Filtering Logic
+    function filterProducts(category, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      if (window.sound) window.sound.playClick();
+
+      const cards = document.querySelectorAll('.product-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Product Simulator Interactive Demo
+    function runProductSim(simId) {
+      const box = document.getElementById(simId);
+      if (!box) return;
+
+      if (window.sound) window.sound.playLaser();
+      if (window.game) window.game.addBananas(30);
+
+      box.classList.toggle('active');
+    }
+
+    // Interactive Estimator Logic
+    function updateEstimator() {
+      const type = document.getElementById('est-type').value;
+      const scale = document.getElementById('est-scale').value;
+      const summary = document.getElementById('est-summary-text');
+      summary.textContent = `${type} (${scale.split('(')[0].trim()})`;
+
+      if (window.sound) window.sound.playClick();
+    }
+
+    function sendEstimatorToWhatsApp() {
+      const type = document.getElementById('est-type').value;
+      const scale = document.getElementById('est-scale').value;
+      const wa = document.getElementById('est-wa').value;
+
+      const message = `Hi Lemon Mint Solutions! 🚀\nI configured a project estimate on your website:\n• Solution: ${type}\n• Scale: ${scale}\n• Integration: ${wa}\n\nCould we discuss the feasibility, exact pricing, and delivery timeline?`;
+
+      if (window.whatsapp) {
+        window.whatsapp.sendToWhatsApp(message);
+      }
+    }
+  </script>
+</body>
+</html>

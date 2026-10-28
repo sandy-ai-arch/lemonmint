@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lemon Mint | Gamified Tech Solutions & Career Placement</title>
+  <meta name="description" content="Lemon Mint - Where serious technology meets playful genius. Enterprise AI solutions, custom software, and gamified skill development with guaranteed placement.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/game.css">
+  <link rel="stylesheet" href="css/whatsapp.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍋</text></svg>">
+</head>
+<body>
+
+  <!-- ============================================================
+       TOP GAME HUD BAR
+       ============================================================ -->
+  <aside class="game-hud-bar" aria-label="Game HUD">
+    <div class="hud-left">
+      <div class="hud-badge player-level-badge">LVL 1: Rookie Minion</div>
+      <div class="hud-badge hud-banana-counter" onclick="window.game && window.game.addBananas(20, event.clientX, event.clientY)" title="Click for bonus bananas!">
+        <span>🍌</span> <strong class="banana-score-val">350</strong> XP
+      </div>
+      <div class="hud-progress-wrap">
+        <span style="font-size:0.75rem; color:#94A3B8;">Next Level:</span>
+        <div class="hud-progress-bar">
+          <div class="hud-progress-fill" style="width: 45%;"></div>
+        </div>
+      </div>
+    </div>
+    <div class="hud-right">
+      <button class="mini-game-pill" onclick="window.bananaGame && window.bananaGame.open()">🎮 PLAY ARCADE</button>
+      <button class="sound-toggle-btn" aria-label="Toggle Sound">🔊 Sound ON</button>
+    </div>
+  </aside>
+
+  <!-- ============================================================
+       MAIN NAVIGATION
+       ============================================================ -->
+  <header class="site-header">
+    <nav class="navbar-container" aria-label="Primary Navigation">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-logo-icon">🍋</div>
+        <div class="brand-logo-text">
+          <div class="brand-name">Lemon <span class="mint-text">Mint</span></div>
+          <div class="brand-tagline">SERIOUS TECH • PLAYFUL GENIUS</div>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li class="nav-item"><a href="index.html" class="active">🏠 Home</a></li>
+        <li class="nav-item"><a href="products.html">⚡ Products & Solutions</a></li>
+        <li class="nav-item"><a href="skills.html">🎓 Skill & Placement</a></li>
+        <li class="nav-item">
+          <a href="javascript:void(0)" onclick="window.whatsapp && window.whatsapp.open()" class="text-mint">
+            💬 WhatsApp Live
+          </a>
+        </li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="game-btn game-btn-whatsapp game-btn-sm" onclick="window.whatsapp && window.whatsapp.open('Hi Lemon Mint! I would like to learn more about your offerings.')">
+          💬 WhatsApp Query
+        </button>
+        <button class="mobile-menu-btn" aria-label="Open Mobile Menu">☰</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ============================================================
+       HERO SECTION WITH INTERACTIVE MINION
+       ============================================================ -->
+  <main>
+    <section class="hero-section">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="highlight-badge">
+            <span>🍌</span> LEVEL 1 UNLOCKED: THE LEMON MINT LAB
+          </div>
+          <h1 class="hero-title">
+            Power Up Your Business With <span class="text-gradient">Game-Changing Tech</span> & Elite Talent!
+          </h1>
+          <p class="hero-subtitle">
+            Lemon Mint combines enterprise-grade AI software, autonomous bot workflows, and gamified career training with guaranteed placements. Tap into a universe where serious results meet irresistible fun!
+          </p>
+          <div class="hero-cta-group">
+            <a href="products.html" class="game-btn game-btn-banana">
+              🚀 Explore Products & Solutions
+            </a>
+            <button class="game-btn game-btn-whatsapp" onclick="window.whatsapp && window.whatsapp.open('Hi Lemon Mint! I want to discuss a new software project.')">
+              💬 Instant WhatsApp Chat
+            </button>
+            <a href="skills.html" class="game-btn game-btn-blue">
+              🎓 Placement Academy
+            </a>
+          </div>
+
+          <div class="hero-stats-row">
+            <div class="stat-item">
+              <span class="stat-number">99.8%</span>
+              <span class="stat-label">Production Uptime</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">1,250+</span>
+              <span class="stat-label">Minions Placed</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">45+</span>
+              <span class="stat-label">SaaS & AI Products</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">&lt; 60s</span>
+              <span class="stat-label">WhatsApp Response</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Minion Visual Stage -->
+        <div class="hero-visual-stage">
+          <div class="minion-stage-card">
+            <span class="stage-badge">🎮 INTERACTIVE MASCOT: BOB</span>
+            <div class="mascot-canvas" data-minion-type="bob" title="Click me to hear me talk and get Bananas!">
+              <!-- SVG Minion injected dynamically by js/minion.js -->
+            </div>
+            <p style="font-size:0.85rem; color:#94A3B8; margin-bottom:12px;">
+              👁️ <em>Watch Bob's eyes follow your mouse pointer! Click him for bananas!</em>
+            </p>
+            <div class="stage-controls">
+              <button class="stage-pill-btn" onclick="window.minions && window.minions.triggerMinionReaction(document.querySelector('.interactive-minion-svg'), event)">
+                🍌 Feed Banana (+10 XP)
+              </button>
+              <button class="stage-pill-btn" onclick="window.whatsapp && window.whatsapp.open('Bello! I want to talk to the Lemon Mint team on WhatsApp.')">
+                💬 Say Bello on WhatsApp
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         THE 4 SUPERPOWERS (FEATURE CARDS)
+         ============================================================ -->
+    <section style="background: rgba(15, 23, 42, 0.6); border-top: 1px solid var(--color-card-border); border-bottom: 1px solid var(--color-card-border);">
+      <div class="container">
+        <div class="section-header">
+          <div class="highlight-badge">⚡ INVENTORY & BUFFS</div>
+          <h2 class="section-title">The 4 Lemon Mint Superpowers</h2>
+          <p class="section-desc">
+            Everything you need to automate workflows, upgrade your software infrastructure, or jumpstart a high-paying tech career.
+          </p>
+        </div>
+
+        <div class="powers-grid">
+          <!-- Power Card 1 -->
+          <div class="power-card" data-banana-bonus="20">
+            <span class="power-level-tag">TIER 5 AI</span>
+            <div class="power-icon-box power-icon-yellow">🤖</div>
+            <h3>Autonomous AI Bots & RPA</h3>
+            <p>
+              Replace manual grunts with super-smart autonomous agents. Our bots handle data pipelines, customer triaging, and ERP operations 24/7 without a coffee break!
+            </p>
+            <ul class="power-perks-list">
+              <li>Up to 80% time saved on repetitive tasks</li>
+              <li>Multi-modal LLM reasoning pipelines</li>
+              <li>Custom enterprise CRM & ERP connectors</li>
+            </ul>
+            <a href="products.html" class="game-btn game-btn-banana game-btn-sm" style="margin-top:auto;">
+              View AI Solutions ➔
+            </a>
+          </div>
+
+          <!-- Power Card 2 -->
+          <div class="power-card" data-banana-bonus="20">
+            <span class="power-level-tag">ENTERPRISE</span>
+            <div class="power-icon-box power-icon-blue">☁️</div>
+            <h3>Cloud & SaaS Platforms</h3>
+            <p>
+              Rock-solid web architectures engineered for millions of concurrent users. High-availability microservices, military-grade security, and lightning latency.
+            </p>
+            <ul class="power-perks-list">
+              <li>99.99% multi-region cloud resilience</li>
+              <li>Serverless microservices with real-time sync</li>
+              <li>Bank-grade data encryption at rest and in flight</li>
+            </ul>
+            <a href="products.html" class="game-btn game-btn-blue game-btn-sm" style="margin-top:auto;">
+              Explore SaaS Stacks ➔
+            </a>
+          </div>
+
+          <!-- Power Card 3 -->
+          <div class="power-card" data-banana-bonus="20">
+            <span class="power-level-tag">ACADEMY</span>
+            <div class="power-icon-box power-icon-mint">🎓</div>
+            <h3>Gamified Skills & Placement</h3>
+            <p>
+              No boring lectures. We train candidates through level-based quest bootcamps, real production builds, and 100% placement assurance with 350+ partner companies.
+            </p>
+            <ul class="power-perks-list">
+              <li>Zero-to-Hero Full-Stack & AI tracks</li>
+              <li>1-on-1 FAANG mentor interview readiness</li>
+              <li>₹8.5 LPA average alumni package</li>
+            </ul>
+            <a href="skills.html" class="game-btn game-btn-whatsapp game-btn-sm" style="margin-top:auto;">
+              View Placement Tracks ➔
+            </a>
+          </div>
+
+          <!-- Power Card 4 -->
+          <div class="power-card" data-banana-bonus="20">
+            <span class="power-level-tag">INSTANT</span>
+            <div class="power-icon-box power-icon-purple">💬</div>
+            <h3>Instant WhatsApp Integration</h3>
+            <p>
+              Zero friction. Have a product inquiry, need custom software, or want career counseling? Get connected directly with our team on WhatsApp in seconds.
+            </p>
+            <ul class="power-perks-list">
+              <li>Direct WhatsApp API & wa.me routing</li>
+              <li>Automated smart qualification bots</li>
+              <li>Human engineering leads on standby</li>
+            </ul>
+            <button class="game-btn game-btn-whatsapp game-btn-sm" style="margin-top:auto;" onclick="window.whatsapp && window.whatsapp.open('Hi Lemon Mint! I have a question and would like to chat.')">
+              Chat on WhatsApp ➔
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         DAILY QUESTS & INTERACTIVE BANANA GENERATOR
+         ============================================================ -->
+    <section>
+      <div class="container" style="display:grid; grid-template-columns: 1fr 1fr; gap:36px; align-items:start;">
+        
+        <!-- Quest Widget -->
+        <div class="quest-widget">
+          <div class="quest-widget-header">
+            <div class="quest-title-wrap">
+              <span style="font-size:1.6rem;">📜</span>
+              <div>
+                <h3>Daily Explorer Quests</h3>
+                <p style="font-size:0.8rem; color:#94A3B8;">Complete quests on the site to rank up your Minion level!</p>
+              </div>
+            </div>
+            <span class="highlight-badge" style="font-size:0.75rem;">+250 🍌 TOTAL</span>
+          </div>
+
+          <div class="quest-items-list">
+            <div class="quest-item" data-reward="25">
+              <div class="quest-item-left">
+                <div class="quest-checkbox"></div>
+                <div class="quest-item-text">Click Bob the Minion on the home page</div>
+              </div>
+              <span class="quest-reward">+25 🍌</span>
+            </div>
+
+            <div class="quest-item" data-reward="50">
+              <div class="quest-item-left">
+                <div class="quest-checkbox"></div>
+                <div class="quest-item-text">Inspect Products & Solutions inventory</div>
+              </div>
+              <span class="quest-reward">+50 🍌</span>
+            </div>
+
+            <div class="quest-item" data-reward="75">
+              <div class="quest-item-left">
+                <div class="quest-checkbox"></div>
+                <div class="quest-item-text">Check Skill Development & Placement curriculum</div>
+              </div>
+              <span class="quest-reward">+75 🍌</span>
+            </div>
+
+            <div class="quest-item" data-reward="100">
+              <div class="quest-item-left">
+                <div class="quest-checkbox"></div>
+                <div class="quest-item-text">Send a test inquiry via WhatsApp button</div>
+              </div>
+              <span class="quest-reward">+100 🍌</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Banana Booster Station -->
+        <div class="quest-widget" style="text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:36px 24px;">
+          <div class="highlight-badge" style="margin-bottom:12px;">🕹️ RAPID CLICKER STATION</div>
+          <h3 style="font-size:1.6rem; color:#FFFFFF; margin-bottom:8px;">Banana XP Turbo Booster</h3>
+          <p style="color:#94A3B8; font-size:0.95rem; margin-bottom:20px; max-width:380px;">
+            Smash the giant banana to rack up XP points and trigger arcade soundwaves!
+          </p>
+
+          <button id="giant-banana-btn" class="game-btn game-btn-banana" style="font-size:2rem; padding:20px 40px; border-radius:30px; margin-bottom:16px;" onclick="window.game && window.game.addBananas(25, event.clientX, event.clientY)">
+            🍌 TAP FOR +25 XP!
+          </button>
+
+          <div style="font-family:var(--font-arcade); font-size:0.75rem; color:var(--color-banana);">
+            TOTAL HARVESTED: <span class="banana-score-val">350</span> 🍌
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CLIENT & ALUMNI HALL OF FAME (TESTIMONIALS)
+         ============================================================ -->
+    <section style="background: rgba(11, 17, 32, 0.7); border-top: 1px solid var(--color-card-border);">
+      <div class="container">
+        <div class="section-header">
+          <div class="highlight-badge">🏆 HALL OF FAME</div>
+          <h2 class="section-title">Loved by Enterprises & Placed Developers</h2>
+          <p class="section-desc">Real stories from businesses scaling with our software and students landing dream tech roles.</p>
+        </div>
+
+        <div class="powers-grid">
+          <!-- Card 1 -->
+          <div class="power-card">
+            <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
+              <div style="width:48px; height:48px; border-radius:50%; background:var(--color-banana); display:flex; align-items:center; justify-content:center; font-size:1.4rem;">
+                👨‍💼
+              </div>
+              <div>
+                <h4 style="color:#FFFFFF; font-size:1.1rem;">Vikram Singhania</h4>
+                <p style="font-size:0.8rem; color:var(--color-banana); margin:0;">CTO, Apex Logistics Global</p>
+              </div>
+            </div>
+            <p style="font-style:italic;">
+              "Lemon Mint deployed an autonomous RPA bot that cut our dispatch processing time by 75%. Their game-like approach kept our operations team totally engaged!"
+            </p>
+            <div style="margin-top:auto; color:var(--color-banana); font-size:1rem;">★★★★★</div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="power-card">
+            <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
+              <div style="width:48px; height:48px; border-radius:50%; background:var(--color-mint-light); display:flex; align-items:center; justify-content:center; font-size:1.4rem;">
+                👩‍💻
+              </div>
+              <div>
+                <h4 style="color:#FFFFFF; font-size:1.1rem;">Ananya Roy</h4>
+                <p style="font-size:0.8rem; color:var(--color-mint-light); margin:0;">SDE at FinTech Unicorn (14 LPA)</p>
+              </div>
+            </div>
+            <p style="font-style:italic;">
+              "I switched from a non-tech background to Full-Stack AI Engineer through Lemon Mint's bootcamp. The mock boss battles and 1-on-1 placement support got me placed in 18 days!"
+            </p>
+            <div style="margin-top:auto; color:var(--color-banana); font-size:1rem;">★★★★★</div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="power-card">
+            <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
+              <div style="width:48px; height:48px; border-radius:50%; background:var(--color-overalls-light); display:flex; align-items:center; justify-content:center; font-size:1.4rem;">
+                🏢
+              </div>
+              <div>
+                <h4 style="color:#FFFFFF; font-size:1.1rem;">Rajesh Kannan</h4>
+                <p style="font-size:0.8rem; color:var(--color-overalls-light); margin:0;">VP of Engineering, CloudScale</p>
+              </div>
+            </div>
+            <p style="font-style:italic;">
+              "We hired 8 Lemon Mint graduates for our React and Node microservices team. They were shipping production code in week 1. Incredible practical training!"
+            </p>
+            <div style="margin-top:auto; color:var(--color-banana); font-size:1rem;">★★★★★</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         BOTTOM WHATSAPP CALL TO ACTION BANNER
+         ============================================================ -->
+    <section>
+      <div class="container">
+        <div class="cta-banner-card">
+          <div class="cta-content">
+            <div class="highlight-badge" style="margin-bottom:14px; background:rgba(0,0,0,0.3); border-color:#25D366; color:#34D399;">
+              💬 FASTEST WAY TO CONNECT
+            </div>
+            <h2>Have a Question or Need a Custom Quest?</h2>
+            <p>
+              Whether you need enterprise software, want to see a live product demo, or want to know about our skill development and 100% placement program — our team is ready to assist you on WhatsApp!
+            </p>
+          </div>
+          <div class="cta-buttons">
+            <button class="game-btn game-btn-whatsapp" onclick="window.whatsapp && window.whatsapp.open('Hi Lemon Mint! I have an inquiry regarding your products and training.')">
+              <span>💬</span> Chat with Us on WhatsApp
+            </button>
+            <a href="products.html" class="game-btn game-btn-banana game-btn-sm">
+              <span>⚡</span> Browse All Solutions
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       SITE FOOTER
+       ============================================================ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <div class="brand-logo-icon">🍋</div>
+            <div class="brand-logo-text">
+              <div class="brand-name">Lemon <span class="mint-text">Mint</span></div>
+              <div class="brand-tagline">SERIOUS TECH • PLAYFUL GENIUS</div>
+            </div>
+          </div>
+          <p>
+            Pioneering gamified enterprise tech, autonomous AI bots, and zero-to-hero developer placement bootcamps. Where innovation feels like your favorite video game.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">🏠 Home (Landing)</a></li>
+            <li><a href="products.html">⚡ Products & Solutions</a></li>
+            <li><a href="skills.html">🎓 Skill & Placement</a></li>
+            <li><a href="javascript:void(0)" onclick="window.bananaGame && window.bananaGame.open()">🎮 Play Banana Arcade</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Products</h4>
+          <ul class="footer-links">
+            <li><a href="products.html#mintflow">🤖 MintFlow AI Agents</a></li>
+            <li><a href="products.html#bananabots">⚙️ BananaBots RPA</a></li>
+            <li><a href="products.html#omnisphere">☁️ OmniSphere Cloud Hub</a></li>
+            <li><a href="products.html#lemonchat">💬 LemonChat WhatsApp Engine</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>WhatsApp Desk</h4>
+          <p style="font-size:0.85rem; margin-bottom:12px; color:#CBD5E1;">
+            Instant human + AI support 24/7.
+          </p>
+          <button class="game-btn game-btn-whatsapp game-btn-sm" onclick="window.whatsapp && window.whatsapp.open('Hi Lemon Mint Support! I would like to make an inquiry.')">
+            💬 Launch WhatsApp Chat
+          </button>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 Lemon Mint Technologies Inc. All rights reserved. Built with 🍋 and 🍌.</div>
+        <div style="display:flex; gap:16px;">
+          <a href="javascript:void(0)" onclick="window.whatsapp && window.whatsapp.open('Hi! Please share Lemon Mint privacy policy.')" style="color:#94A3B8; text-decoration:none;">Privacy Policy</a>
+          <a href="javascript:void(0)" onclick="window.whatsapp && window.whatsapp.open('Hi! Please share terms of service.')" style="color:#94A3B8; text-decoration:none;">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/audio.js"></script>
+  <script src="js/minion.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/whatsapp.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
