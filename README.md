@@ -2,44 +2,56 @@
 
 > **"Where Serious Tech Meets Playful Genius!"**
 
-A high-converting, fully interactive web experience for **Lemon Mint**, packed with a Minion arcade game theme, Web Audio sound synthesis, eye-tracking mascots, real-time WhatsApp integration, multi-gateway payments, social proof ticker, ROI calculator, and recruiter verification portal.
+A high-converting, fully interactive web experience for **Lemon Mint**, packed with a Minion arcade game theme, Web Audio sound synthesis, eye-tracking mascots, real-time WhatsApp integration, multi-gateway payments, social proof ticker, ROI calculator, recruiter verification portal, and cutting-edge **AI Security & Autonomous AI Agent Projects**.
 
 ---
 
-## 🌟 Pages Overview
+## 🛡️ AI Security & Guardrail Projects
 
-1. **Page 1: Landing Page ([`index.html`](file:///c:/Users/einsrek/Downloads/lemonmint/index.html))**
-   - **Hero Arena**: Cursor-tracking interactive SVG Minion mascot (*Bob*), audio giggles, speech bubbles, and banana awards.
-   - **Top Game HUD**: Minion rank level, Banana score counter, Level progress bar, and fast access pills for CLI, Soundboard, ROI Calculator, and Arcade.
-   - **The 4 Superpowers**: Autonomous AI bots, cloud architectures, gamified bootcamps, and WhatsApp support.
-   - **Daily Quests & Banana Booster**: Interactive mission checklist and rapid clicker station.
-   - **Hall of Fame & Testimonials**: Real-world enterprise client and placed alumni stories.
+1. **SentinelLLM™ Guardrail Firewall (Mythic Tier ★★★★★ | 99.8/100)**:
+   - Real-time semantic guardrail firewall for LLMs and generative agents.
+   - Defends against prompt injection attacks, jailbreaks, training data extraction, and toxic outputs in under 12ms.
+   - Live interactive simulator: *"Test Prompt Injection Defense"*.
 
-2. **Page 2: Products & Solutions ([`products.html`](file:///c:/Users/einsrek/Downloads/lemonmint/products.html))**
-   - **Minion Inventor Arsenal**: Category filters for AI, RPA, Cloud, and WhatsApp.
-   - **6 Flagship Solutions**:
-     - *MintFlow AI™* (Mythic Tier)
-     - *BananaBots RPA™* (Legendary Tier)
-     - *OmniSphere Cloud Hub™* (Epic Tier)
-     - *LemonChat WhatsApp AI Engine™* (Mythic Tier)
-     - *SentinelShield Cyber Armor™* (Legendary Tier)
-     - *PixelCraft Gamified UI/UX™* (Epic Tier)
-   - **1-Click Actions on Every Card**:
-     - `💳 Buy License`: Direct payment checkout modal.
-     - `🎒 Add`: Adds software package into the Minion Backpack.
-     - `🎮 Test Demo`: Interactive terminal workflow simulator.
-     - `💬 WhatsApp`: Contextual pre-filled inquiry.
-   - **Custom Quest Estimator**: Sliders & pickers to generate a tailored specification for WhatsApp.
+2. **AegisRed™ Autonomous AI Pen-Testing Agent (Legendary Tier ★★★★★ | 98.6/100)**:
+   - Autonomous offensive security red-teaming agent that stresses web apps, APIs, vector databases, and LLM endpoints to uncover zero-day vulnerabilities.
+   - Live interactive simulator: *"Run Autonomous Red-Team Scan"*.
 
-3. **Page 3: Skill Development & Placement ([`skills.html`](file:///c:/Users/einsrek/Downloads/lemonmint/skills.html))**
-   - **The Minion Academy**: 4 high-demand career tracks:
-     - *Full-Stack Web & AI Engineering* (16 Weeks | ₹8.2 LPA Avg | ₹28 LPA Highest)
-     - *Data Science & Autonomous AI Agents* (14 Weeks | ₹10.5 LPA Avg | ₹42 LPA Highest)
-     - *Cloud DevOps & Kubernetes Hero* (12 Weeks | ₹9.0 LPA Avg | ₹32 LPA Highest)
-     - *Gamified UI/UX & Design Systems* (10 Weeks | ₹7.8 LPA Avg | ₹22 LPA Highest)
-   - **Direct Enrollment**: `💳 Reserve Seat (₹4,999)` token deposit and `🎒 Add` to backpack.
-   - **1-Minute Skill Evaluator Quiz**: Interactive questionnaire providing track recommendation and early-bird scholarship connection.
-   - **Recruiter Credential Registry**: In-browser verification tool for hiring partners.
+3. **PrivacyVault AI™ Zero-Knowledge DLP (Epic Tier ★★★★☆ | 97.2/100)**:
+   - Enterprise Data Loss Prevention for AI. Redacts social security numbers, banking details, patient records, and company secrets with reversible synthetic tokenization.
+   - Live interactive simulator: *"Test PII Anonymization"*.
+
+4. **SentinelShield Cyber Armor™ (Legendary Tier ★★★★★ | 97.5/100)**:
+   - Zero-Trust API security gateway with automated DDoS mitigation and SOC2/HIPAA compliance shields.
+
+---
+
+## 🤖 Autonomous AI Agent Projects
+
+1. **SwarmForge™ Multi-Agent Swarm (Mythic Tier ★★★★★ | 99.9/100)**:
+   - Coordinated 4-agent collaborative framework (Orchestrator, Research Specialist, Senior Coder, and QA Tester) that takes a single user prompt and completes entire complex engineering projects end-to-end.
+   - Live interactive simulator: *"Trigger 4-Agent Autonomous Swarm"*.
+
+2. **DevOpsSentinel™ Autonomous SRE Agent (Legendary Tier ★★★★★ | 98.4/100)**:
+   - Autonomous 24/7 Site Reliability Engineer. Monitors production Kubernetes clusters, identifies root causes in real-time, rolls back faulty deployments, and writes git patches automatically.
+   - Live interactive simulator: *"Simulate Autonomous Cloud Self-Healing"*.
+
+3. **HunterMint™ Autonomous B2B Outreach Agent (Epic Tier ★★★★☆ | 96.9/100)**:
+   - Autonomous sales pipeline hunter that researches target decision-makers, enriches company data, crafts personalized proposals, and coordinates WhatsApp & calendar meetings.
+   - Live interactive simulator: *"Run B2B Hunter Simulation"*.
+
+4. **MintFlow AI™ Autonomous Workflow Orchestrator (Mythic Tier ★★★★★ | 99.4/100)**:
+   - Autonomous document processing, multi-modal LLM reasoning, and enterprise ERP reconciliation.
+
+---
+
+## 🎓 Student Capstone Arena ([`skills.html`](file:///c:/Users/einsrek/Downloads/lemonmint/skills.html))
+
+Students at Lemon Mint Academy build these production-grade AI security and agent systems as capstones, driving ₹12 - ₹42 LPA placement offers:
+- **SentinelLLM Firewall**: Placed at FinTech Nexus (₹16 LPA)
+- **SwarmForge Multi-Agent Swarm**: Placed at CloudScale Systems (₹18 LPA)
+- **AegisRed Automated Pen-Tester**: Placed at Apex Global Logistics (₹15 LPA)
+- **HunterMint WhatsApp Deal Hunter**: Placed at SaaS Unicorn (₹14 LPA)
 
 ---
 
@@ -58,33 +70,17 @@ A high-converting, fully interactive web experience for **Lemon Mint**, packed w
 
 ---
 
-## 🚀 Newly Added Game & Conversion Features
+## 🚀 Game & Conversion Arsenal
 
-1. **🔔 Live Social Proof Activity Ticker (`js/ticker.js`)**:
-   - Floating notifications at the bottom-left showing live enrollment, demo bookings, and hiring events every 11 seconds.
-2. **🧮 Interactive ROI & Salary Multiplier Calculator (`js/calculator.js`)**:
-   - *Enterprise ROI*: Sliders for team size, manual hours, and hourly rate calculating monthly and annual dollar savings.
-   - *Student Salary*: Calculates salary hike %, target CTC, and bootcamp payback duration (e.g. 1.8 months).
-3. **🔊 Minion Voice Soundboard & Mascot Customizer (`js/soundboard.js`)**:
-   - Real-time synthesized voices for *"Bello!"*, *"Banana!"*, *"Bee-do!"*, *"Ta-da!"*, *"Papaya!"*, and *"Tulaliloo!"*.
-   - Mascot switcher between **Bob**, **Stuart**, and **Kevin**.
-4. **💻 Developer Terminal / CLI Playground (`js/terminal.js`)**:
-   - In-browser interactive bash terminal supporting commands (`help`, `products`, `skills`, `roi`, `checkout`, `banana`, `whatsapp`, `clear`).
-5. **📜 Certificate & Placement Verification Portal (`js/verification.js`)**:
-   - Sample test IDs to verify: `LM-2026-AI88`, `LM-2026-FS42`, `LM-2026-DO19`.
-6. **🎒 Minion Quest Backpack Cart (`js/backpack.js`)**:
-   - Floating cart drawer displaying collected licenses and courses with 1-click transition to checkout.
-
----
-
-## 💬 WhatsApp Integration (`js/whatsapp.js`)
-
-- **Universal Floating Widget**: Pulsing launcher with verified agent status.
-- **Quick Action Chips**: Product Demos, Bootcamp queries, hiring engineers, or custom software estimates.
-- **Customizable Target Number**: Click the ⚙️ gear icon in the chat header to change the destination phone number anytime.
+1. **🔔 Live Social Proof Activity Ticker (`js/ticker.js`)**: Rotating real-time activities every 11 seconds.
+2. **🧮 Interactive ROI & Salary Multiplier Calculator (`js/calculator.js`)**: Dual enterprise dollar savings & student salary jump calculator.
+3. **🔊 Minion Voice Soundboard & Mascot Customizer (`js/soundboard.js`)**: Synthesized voices for *"Bello!"*, *"Banana!"*, *"Bee-do!"*, *"Ta-da!"*, *"Papaya!"*, and *"Tulaliloo!"*.
+4. **💻 Developer Terminal / CLI Playground (`js/terminal.js`)**: In-browser terminal supporting `security`, `agents`, `products`, `skills`, `roi`, `checkout`, `banana`, `whatsapp`, `clear`.
+5. **📜 Certificate & Placement Verification Portal (`js/verification.js`)**: Test IDs: `LM-2026-AI88`, `LM-2026-FS42`, `LM-2026-DO19`.
+6. **🎒 Minion Quest Backpack Cart (`js/backpack.js`)**: Floating cart drawer with 1-click transition to checkout.
 
 ---
 
 ## 🖥️ How to Run
 
-Open [`index.html`](file:///c:/Users/einsrek/Downloads/lemonmint/index.html) in any browser (Google Chrome, Microsoft Edge, Firefox, or Safari). No build step or installation required!
+Open [`index.html`](file:///c:/Users/einsrek/Downloads/lemonmint/index.html) in any browser!

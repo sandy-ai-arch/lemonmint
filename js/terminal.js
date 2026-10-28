@@ -44,6 +44,8 @@ class DeveloperTerminal {
           <div class="terminal-shortcuts-bar">
             <span style="font-size:0.75rem; color:#64748B;">Quick commands:</span>
             <button class="term-shortcut-btn" onclick="window.devTerminal.execute('help')">help</button>
+            <button class="term-shortcut-btn" onclick="window.devTerminal.execute('security')">security</button>
+            <button class="term-shortcut-btn" onclick="window.devTerminal.execute('agents')">agents</button>
             <button class="term-shortcut-btn" onclick="window.devTerminal.execute('products')">products</button>
             <button class="term-shortcut-btn" onclick="window.devTerminal.execute('skills')">skills</button>
             <button class="term-shortcut-btn" onclick="window.devTerminal.execute('roi')">roi</button>
@@ -91,6 +93,8 @@ class DeveloperTerminal {
       case 'help':
         this.printLine(`
 Available Lemon Mint commands:
+  • <strong style="color:#34D399;">security</strong>   - Inspect AI Security & Guardrail Firewalls
+  • <strong style="color:#34D399;">agents</strong>     - Inspect Autonomous Multi-Agent Swarms
   • <strong style="color:#34D399;">products</strong>   - List active enterprise AI & SaaS arsenal
   • <strong style="color:#34D399;">skills</strong>     - Inspect bootcamp tracks & placement stats
   • <strong style="color:#34D399;">roi</strong>        - Launch interactive Enterprise ROI Calculator
@@ -99,6 +103,36 @@ Available Lemon Mint commands:
   • <strong style="color:#34D399;">banana</strong>     - Harvest +25 bonus Banana XP
   • <strong style="color:#34D399;">whatsapp</strong>   - Connect with live Lemon Mint support
   • <strong style="color:#34D399;">clear</strong>      - Clear the terminal console
+        `);
+        break;
+
+      case 'security':
+      case 'ai-security':
+        this.printLine(`
+[LEMON MINT AI SECURITY & GUARDRAILS]
+1. SentinelLLM™ Guardrail Firewall (Mythic Tier | 99.8/100)
+   • Defense against prompt injection, jailbreaks & PII leaks in &lt;12ms
+2. AegisRed™ Autonomous AI Pen-Tester (Legendary Tier | 98.6/100)
+   • Offensive red-teaming agent exposing zero-days in LLMs & APIs
+3. PrivacyVault AI™ Zero-Knowledge DLP (Epic Tier | 97.2/100)
+   • HIPAA & GDPR compliant PII redaction and tokenization
+4. SentinelShield™ Cyber Armor (Legendary Tier | 97.5/100)
+   • Zero-Trust WAF gateway with automated DDoS mitigation
+        `);
+        break;
+
+      case 'agents':
+      case 'ai-agents':
+        this.printLine(`
+[LEMON MINT AUTONOMOUS AI AGENTS]
+1. SwarmForge™ Multi-Agent Swarm (Mythic Tier | 99.9/100)
+   • 4-Agent collaborative engine (Orchestrator, Researcher, Coder, QA)
+2. DevOpsSentinel™ Autonomous SRE Agent (Legendary Tier | 98.4/100)
+   • 24/7 self-healing Kubernetes operator generating git pull requests
+3. HunterMint™ Outreach Agent (Epic Tier | 96.9/100)
+   • B2B lead enrichment & two-way WhatsApp scheduling agent
+4. MintFlow AI™ Orchestration Framework (Mythic Tier | 99.4/100)
+   • Autonomous document processing & enterprise ERP reconciliation
         `);
         break;
 
